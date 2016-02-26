@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="nightApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+
+    <title>Night Coordinator App</title>
+        <!-- Bootstrap -->
+<!-- build:css styles/main.css -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/my_styles.css" rel="stylesheet">
+
+<!-- endbuild -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <div ui-view="header"></div>
+  <div ui-view="content" ></div>
+  <div ui-view="footer"></div>
+
+
+<!-- build:js scripts/main.js -->
+<!-- Third party JS -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+<!-- Main app module -->
+    <script src="app/app.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/nightLife.service.js"></script>
+    <script src="app/core/auth.service.js"></script>
+    <script src="app/landing/landing.module.js"></script>
+    <script src="app/landing/config.route.js"></script>
+    <script src="app/landing/landing.controller.js"></script>
+    <script src="app/auth/auth.module.js"></script>
+    <script src="app/auth/config.auth.route.js"></script>
+    <script src="app/auth/auth.controller.js"></script> 
+
+
+
+
+
+
+
+
+
+
+<!-- endbuild -->
+
+</body>
+
+</html>

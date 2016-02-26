@@ -1,0 +1,34 @@
+
+
+<div class="container text-center login-page">
+<div class="row ">
+<div class="col-xs-12 col-sm-4">
+</div>
+      <div class="col-xs-12 col-sm-4">
+        <h2>Login</h2>
+        <div ng-show="vm.error" class="alert alert-danger">{{vm.errorMessage}}</div>
+        <form class="form" autocomplete="off" ng-submit="vm.login()">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" ng-model="vm.loginForm.username" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+              <input type="password" class="form-control" name="password" ng-model="vm.loginForm.password" required>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary btn-md" ng-disabled="disabled">Login</button>
+            </div>
+        </form>
+      </div>
+<div class="col-xs-12 col-sm-4">
+
+</div>
+</div>
+</br></br><h2>Signed Up?</h2></br>
+  <div class="row">
+    <div class="col-xs-12">
+    <button ui-sref="app.register" class="btn btn-success btn-md">Sign Up</button>
+   </div>
+</div>
+</div>

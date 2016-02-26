@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row text-center">
+
+
+    <h2>Plans Tonight?</h2>
+    <h4> Find places to hangout with your friends and let them know your coming.</h4></br>
+    <div class="text-center">
+    <i class="fa fa-map-marker fa-3x"></i>
+    <i class="fa fa-cab fa-3x"></i>
+    <i class="fa fa-glass fa-3x"></i>
+  </div>
+    <div class="col-xs-12 col-sm-3">
+    </div>
+    <div class="col-xs-12 col-sm-6">
+]    <form autocomplete="off" class="form-inline" ng-submit="vm.searchBars()">
+      <div  class="form-group">
+        <input type="text" class="form-control" name="location" placeholder="In what city?" ng-model="vm.searchForm.location" required>
+      </div>
+      <button type="submit" class="btn btn-default" ng-disabled="disabled">Go</button>
+    </form>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+    </div>
+    <div class="col-xs-12">
+      <i ng-show="!vm.notReady" class="fa fa-refresh fa-spin fa-3x"></i>
+    </div>
+  </div>
+      <div class="bar-list row" ng-repeat="bar in vm.bars">
+        <hr>
+            <div class="col-xs-12 col-sm-2">
+                <a ng-href="{{bar.url}}"><img ng-src="{{bar.image_url}}"/>{{vm.bar.url}}</a>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              <p>{{bar.name}}</p>
+                 <img  ng-src="{{bar.rating_img_url}}" alt="" />
+                  <div class="row">
+                      <div class="col-xs-12">
+                      <p><i>"{{bar.snippet_text | limitTo:150 }}...."</i></p></br>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-xs-12 col-sm-2">
+                  <button type="button" class="" ng-click="vm.addGoing(bar)">Going</button>
+                <div class="" ng-repeat="person in bar.going">
+                  <span ng-show='person.confirmed'>{{person.username}}<span>
+                </div>
+            </div>
+      </div>
+</div>
