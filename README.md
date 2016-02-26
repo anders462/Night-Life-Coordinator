@@ -1,4 +1,4 @@
-# Voting App
+# Night Life Coordinator
 
 Application uses a Node.js/Express.js backend and Angular.js SPA frontend. Jason Web Token is used for Authentication.s
 
