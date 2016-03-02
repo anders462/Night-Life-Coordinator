@@ -19,7 +19,7 @@ module.exports =  function(app){
   //find user
   User.findOne({username: req.body.username}, function(err,user){
     if (err) {
-      console.log(err);
+      console.log("error db")
       throw err;
     }
 
