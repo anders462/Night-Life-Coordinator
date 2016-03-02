@@ -11,7 +11,7 @@ var express = require('express'), // express lightweight node framework
     api = require('./routes/api_routes'); // get api routes module
 
     var app = express(); // create express app instance
-    app.use('cors');  //use CORS
+    app.use(cors());  //add CORS to all routes
     app.set('port', (process.env.PORT || 8000));   // set port for server
 
      //-----------------------------------
