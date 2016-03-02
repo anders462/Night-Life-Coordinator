@@ -27,7 +27,7 @@ module.exports = function (req, res,next){
       next();
       // handles errors
     }).catch(function (err) {
-      res.status(404).json({success: false, message: "Data unavailable for location"});
+      res.status(404).json({success: false, message: "Data unavailable for location",err:err});
       });
 
   };
