@@ -10,6 +10,7 @@ var User = require('../models/user'), // get mongoose user model
 
 
 
+
 module.exports =  function(app){
 
   //AUTHENTICATE USER
