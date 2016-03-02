@@ -15,6 +15,7 @@ module.exports =  function(app){
 
   //AUTHENTICATE USER
   app.post('/api/login', function(req,res){
+    console.log("LOGIN ATTEMPT")
   //find user
   User.findOne({username: req.body.username}, function(err,user){
     if (err) throw err;
