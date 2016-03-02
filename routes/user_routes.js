@@ -61,7 +61,8 @@ app.post('/api/register', function(req, res) {
           bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(req.body.password, salt, function(err, hash) {
               if (err) throw err;
-              // create new user
+
+            // create new user
               var newUser = new User({
                 username: req.body.username,
                 password: hash,
