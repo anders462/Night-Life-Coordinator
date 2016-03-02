@@ -18,8 +18,11 @@ module.exports =  function(app){
     console.log("LOGIN ATTEMPT")
   //find user
   User.findOne({username: req.body.username}, function(err,user){
-    if (err) throw err;
-    
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+
     if (!user){
       res.status(401).json({success:false, message: "Authentication failed. User not found!"});
     } else if (user) {
@@ -42,6 +45,8 @@ module.exports =  function(app){
 
       }); //end bcrypt callback
      }
+     console.log("no user");
+
     }); //end MongoDB callback
   });
 
