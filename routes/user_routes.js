@@ -45,7 +45,6 @@ module.exports =  function(app){
 
       }); //end bcrypt callback
      }
-     console.log("no user");
 
     }); //end MongoDB callback
   });
