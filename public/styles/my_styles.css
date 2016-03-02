@@ -18,9 +18,9 @@ img {
 
 button {
     color: rgb(246, 242, 241);
-    border-color:color: rgb(246, 242, 241);
+    border-color: rgb(246, 242, 241);
     background-color: rgb(61, 53, 119);
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow:;
 }
 
@@ -34,13 +34,16 @@ button {
   padding: 20px;
 }
 
+
 input[type="text"], input[type="password"]{
 background-color:rgb(61, 53, 119) !important;
  color: rgb(246, 242, 241) !important;
 }
-
+.navbar-default .navbar-nav>li>a {
+  color: rgb(246, 242, 241) !important;
+}
 .navbar-default {
-  background: rgb(61, 53, 119);
+  background: rgb(50, 41, 119);
   color: #ffffff;
   border-style: none;
 }
@@ -53,40 +56,38 @@ background-color:rgb(61, 53, 119) !important;
   color: rgb(246, 242, 241) !important;
 }
 
-
-
 .navbar-default .navbar-nav > .active > a {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav > .active > a:hover {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav > .active > a:focus {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav > .open > a {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav > .open > a:hover {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav > .open > a:focus {
   background: #1a237e;
-  color: #ffffff;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a {
   background-color: #303f9f;
-  color: #eeeeee;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
-  color: #000000;
+  color: rgb(246, 242, 241) !important;
 }
 .navbar-default .navbar-nav .open .dropdown-menu {
   background-color: #303f9f;
-  color: #eeeeee;
+  color: rgb(246, 242, 241) !important;
 }

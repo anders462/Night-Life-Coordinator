@@ -11,17 +11,14 @@ angular
 
   var vm = this; //set vm (view model) to reference main object
 
-  vm.bars = [];
+
   var searchResult = [];
+  if ($window.localStorage.hasOwnProperty("cache")) {
+    vm.bars = JSON.parse($window.localStorage.cache);
+  } else {
+    vm.bars = [];
+  }
   vm.notReady = true;
-
- if ($window.localStorage.search) {
-   console.log("test1111");
-//      //vm.searchForm.location = $window.localStorage.search;
-     //vm.searchBars();
- }
-
-
 //Match bars in db with yelp search and add going to result
   var barMatch = function(allBarsInDb,searchResult){
     var bars =  searchResult.map(function(bar){
@@ -53,15 +50,7 @@ angular
 };
 
 
-
-
-
   vm.searchBars = function (){
-
-    if (!$window.localStorage.token) {
-        $window.localStorage.search = vm.searchForm.location;
-    }
-
 
       vm.notReady = false;
       console.log(vm.notReady);
@@ -70,12 +59,15 @@ angular
             function(response){
               //result from search
               searchResult = response.data.message;
-              console.log(searchResult);
+              console.log("search_res",searchResult);
               // get bars from data base
               nightLifeFactory.getBars()
                 .then(
                   function(response){
                    vm.bars = barMatch(response.data,searchResult);
+                   $window.localStorage["cache"] = JSON.stringify(vm.bars);
+
+
                   },
                   function(response){
                     vm.message = "Error: "+response.status + " " + response.statusText;
@@ -85,6 +77,7 @@ angular
                 )
             },
             function(response){
+              vm.notReady = true;
               vm.message = "Error: "+ response.status + " " + response.statusText;
               console.log("Error: "+ response.status + " " + response.statusText);
             }

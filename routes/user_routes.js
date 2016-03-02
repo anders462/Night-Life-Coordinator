@@ -79,17 +79,17 @@ app.post('/api/register', function(req, res) {
 
 
 //UPDATE PASSWORD
-app.post('/update',tokenVerify, function(req,res){
+app.put('/api/update',tokenVerify, function(req,res){
   User.findOne({username: req.decoded._doc.username},{password:1, _id:0}, function(err,user){
     if (err) throw err;
     //check if password matches
     bcrypt.compare(req.body.oldPassword, user.password, function(err, auth) {
       if (err) throw err;
-
+        //if not authorized
         if (!auth){
-          res.json({success: false, message: "Authentication failed. Wrong password!"});
+          res.status(401).json({success: false, message: "Authentication failed. Wrong password!"});
         } else {
-
+          //encrypt new password
           bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(req.body.newPassword, salt, function(err, hash) {
               if (err) throw err;
@@ -97,7 +97,7 @@ app.post('/update',tokenVerify, function(req,res){
             //update oldPassword hash with newPassword hash
             User.findOneAndUpdate({username: req.decoded._doc.username}, {password: hash}, function(err,user) {
                 if (err) throw err;
-                res.json({ success: true, message: "New password saved" });
+                res.status(200).json({ success: true, message: "New password saved" });
 
               });
            });

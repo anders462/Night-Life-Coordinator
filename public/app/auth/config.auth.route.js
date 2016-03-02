@@ -41,8 +41,26 @@ angular
                 }
 
               })
+              .state('app.settings', {
+                    url: 'settings',
+                    views: {
+                      'content@': {
+                         templateUrl: 'app/auth/settings.html',
+                         controller:  'AuthController',
+                         controllerAs: 'vm'
+                      }
+                    },
+                    data : {
+                      authenticate: true
+                    }
 
+                  })
 
+                
+
+/*
+
+*/
 
     };
 

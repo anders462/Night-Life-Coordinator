@@ -28,7 +28,7 @@
 
 <body>
 
-  <div ui-view="header"></div>
+  <div ng-controller="AuthController as vm" ui-view="header"></div>
   <div ui-view="content" ></div>
   <div ui-view="footer"></div>
 
@@ -52,7 +52,7 @@
     <script src="app/landing/landing.controller.js"></script>
     <script src="app/auth/auth.module.js"></script>
     <script src="app/auth/config.auth.route.js"></script>
-    <script src="app/auth/auth.controller.js"></script> 
+    <script src="app/auth/auth.controller.js"></script>
 
 
 

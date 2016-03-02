@@ -18,22 +18,16 @@ module.exports = function (req, res,next){
 
 //search yelp suing client, with terms "bar"
     client.search({
-      term: "pub",
+      term: "bar",
       location: req.query.location
       //handle success
     }).then(function (data) {
       req.bars = data.businesses;
-      console.log(req.bars);
+      console.log("bars",req.bars);
       next();
       // handles errors
     }).catch(function (err) {
-      if (err.type === yelp.errorTypes.areaTooLarge) {
-        res.status(400).json({success: false, message: "Area to large"});
-      } else if (err.type === yelp.errorTypes.unavailableForLocation) {
-          res.status(400).json({success: false, message: "Data unavailable for location"});
-       } else {
-         res.status(400).json({success: false, message: err.type});
-          }
+      res.status(404).json({success: false, message: "Data unavailable for location"});
       });
 
   };
