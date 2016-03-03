@@ -47,6 +47,8 @@ angular
           vm.bars[i].id = newData.id;
         }
   }
+  $window.localStorage["cache"] = JSON.stringify(vm.bars);
+
 };
 
 
