@@ -17,6 +17,7 @@ var express = require('express'), // express lightweight node framework
      //-----------------------------------
      // -- connect to mongo database -----
      //-----------------------------------
+     //mongoose.connect(config.database); //change when running local db
     mongoose.connect(process.env.MONGOLAB_URI);
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'Database failed to connect!'));
