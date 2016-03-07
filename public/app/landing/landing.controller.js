@@ -51,7 +51,8 @@ angular
 
 };
 
-
+/
+//refactured using chained promises
   vm.searchBars = function (){
 
       vm.notReady = false;
@@ -63,29 +64,23 @@ angular
               searchResult = response.data.message;
               console.log("search_res",searchResult);
               // get bars from data base
-              nightLifeFactory.getBars()
-                .then(
-                  function(response){
-                   vm.bars = barMatch(response.data,searchResult);
-                   $window.localStorage["cache"] = JSON.stringify(vm.bars);
-
-
-                  },
-                  function(response){
-                    vm.message = "Error: "+response.status + " " + response.statusText;
-                    console.log("Error: "+response.status + " " + response.statusText);
-                  }
-
-                )
-            },
+              console.log("promise 1")
+               return nightLifeFactory.getBars()
+          })
+          .then(
             function(response){
-              vm.notReady = true;
-              vm.message = "Error: "+ response.status + " " + response.statusText;
-              console.log("Error: "+ response.status + " " + response.statusText);
-            }
+            vm.bars = barMatch(response.data,searchResult);
+            $window.localStorage["cache"] = JSON.stringify(vm.bars);
+            console.log("promise 2")
 
-          )
-  };
+          }).catch(function(err){
+              console.log('promise becomes err');
+              vm.notReady = true;
+              vm.message = "Error: "+err.status + " " + err.statusText;
+              console.log("Error: "+ err.status + " " + err.statusText)
+
+          })
+    }
 
 vm.addGoing = function(bar){
 

@@ -1,4 +1,6 @@
 
+//Refacturing module into a constructor
+
 (function(){
 
 'use strict'
@@ -9,12 +11,11 @@ var User = require('../models/user'), // get mongoose user model
     jwt = require('jsonwebtoken'); // used to create, assign and verify tokens
 
 
-
-
 module.exports =  function(app){
 
   //AUTHENTICATE USER
   app.post('/api/login', function(req,res){
+
     console.log("LOGIN ATTEMPT")
   //find user
   User.findOne({username: req.body.username}, function(err,user){
@@ -39,7 +40,7 @@ module.exports =  function(app){
           {expiresIn: 86400}, function(token){
             // return the information including token as JSON
             console.log(token);
-            res.status(200).json({success: true, message: 'Token sent', token: token});
+            res.status(200).json({success: true, message: 'Token sent', token: token, user: user.username });
           });
         }
 

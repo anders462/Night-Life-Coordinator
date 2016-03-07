@@ -5,15 +5,15 @@ angular
   .module('nightApp.auth')
     .controller('AuthController', AuthController)
 
-    AuthController.$inject = ['authFactory','$window','$location'];
+    AuthController.$inject = ['authFactory','$location', '$rootScope'];
 
-   function AuthController (authFactory,$window,$location){
+   function AuthController (authFactory,$location,$rootScope){
 
-     var vm = this; //set vm (view model) to reference main objec
-
+     var vm = this; //set vm (view model) to reference main object
 
      vm.logout = function(){
-       //Delete token and cache at logout
+       //Delete token, currentUser and cache at logout from localStorage
+       $rootScope.currentUser = null;
        authFactory.deleteToken();
      }
 
@@ -29,6 +29,7 @@ angular
            .then(function (response) {
             console.log(response.data);
             authFactory.setToken(response.data.token)
+            authFactory.setCurrentUser(response.data.user);
             vm.loginForm = {};
             vm.error = false;
             $location.path('/');

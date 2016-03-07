@@ -42,6 +42,19 @@ angular
       var deleteToken = function(){
         $window.localStorage.removeItem("token");
         $window.localStorage.removeItem("cache");
+        $window.localStorage.removeItem('currentUser');
+      }
+
+      var setCurrentUser = function(user) {
+        $window.localStorage.currentUser = user;
+      }
+
+      var getCurrentUser = function(){
+        if ($window.localStorage.currentUser){
+          return $window.localStorage.currentUser
+        } else {
+          return null;
+        }
       }
 
 
@@ -52,7 +65,9 @@ angular
         setToken: setToken,
         getToken: getToken,
         deleteToken: deleteToken,
-        update: update
+        update: update,
+        setCurrentUser: setCurrentUser,
+        getCurrentUser: getCurrentUser
       };
 
 

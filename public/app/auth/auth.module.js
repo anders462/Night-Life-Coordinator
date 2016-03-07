@@ -14,6 +14,7 @@ angular
   $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams, options){
         console.log('stateChangeStart')
+        $rootScope.currentUser = authFactory.getCurrentUser();
         //if new state need authenticate and no token route to login
         if (toState.data.authenticate && !authFactory.getToken()){
           $state.transitionTo("app.login");

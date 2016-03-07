@@ -17,7 +17,9 @@ angular
           url: '/',
           views: {
             'header': {
-                templateUrl: 'app/common/header.html'
+                templateUrl: 'app/common/header.html',
+                controller:  'AuthController',
+                controllerAs: 'vm'    
             },
             'content': {
                templateUrl: 'app/landing/landing.html',

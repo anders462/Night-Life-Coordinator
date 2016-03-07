@@ -17,7 +17,7 @@ app.route('/api/bars')
    .get(function(req,res){
      Bar.find({},function(err,doc){
        if (err) throw err;
-       res.json(doc);
+       res.status(200).json(doc);
      })
 
    })
